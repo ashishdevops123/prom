@@ -25,6 +25,14 @@
          src: "/home/ansible/prometheus-2.39.1.linux-amd64.tar.gz"
          dest: "/home/ansible/prometheus-files"
          remote_src: yes
+    -  name: creating a user prometheus
+       user:
+         name: prometheus
+         create_home: no
+         shell: /bin/false
+         
+
+              
          
          
          
