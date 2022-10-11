@@ -1,0 +1,20 @@
+---
+-  name: prometheus installation
+   become: yes
+   hosts: all
+   vars:
+    -  Prom_url: "https://github.com/prometheus/prometheus/releases/download/v2.39.1/prometheus-2.39.1.linux-amd64.tar.gz"
+
+   tasks:
+    -  name: updating packages
+       apt:
+         update_cache: yes
+         state: present
+    -  name: Downloading prometheus version
+       get_url:
+         url: "{{ Prom_url }}"
+         dest: /home/ansible
+    -  name:     
+         
+
+  
