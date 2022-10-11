@@ -17,6 +17,7 @@
     - name: mkdir prometheus-files     
       ansible.builtin.file:
         path: /home/ansible/prometheus-files
+        state: present
         owner: ansible
         group: ansible
         mode: '0644'
