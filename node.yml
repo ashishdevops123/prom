@@ -1,0 +1,19 @@
+---
+-  name: installation of nodeexporter
+   become: yes
+   hosts: all
+   vars:
+    -  node_url: "https://github.com/prometheus/node_exporter/releases/download/v1.4.0/node_exporter-1.4.0.linux-amd64.tar.gz"
+      
+   tasks: 
+    -  name: updating packages
+       apt:
+         update_cache: yes
+         state: present
+    -  name: Downloading prometheus version
+       get_url:
+         url: "{{ node_url }}"
+         dest: /home/ansible 
+ 
+
+   
