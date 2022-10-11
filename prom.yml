@@ -14,7 +14,7 @@
        get_url:
          url: "{{ Prom_url }}"
          dest: /home/ansible
-    -  name:     
+      
          
 
   
