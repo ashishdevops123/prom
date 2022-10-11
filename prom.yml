@@ -59,7 +59,8 @@
         path: "{{ item }}"
         state: file
         owner: prometheus
-        group: prometheus  
+        group: prometheus 
+        mode: '0644'  
       loop:
        -  /usr/local/bin/prometheus
        -  /usr/local/bin/promtool   
