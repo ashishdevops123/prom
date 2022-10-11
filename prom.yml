@@ -56,11 +56,8 @@
         remote_src: yes   
     - name: changing ownership of prometheus and promtool
       file:
-        become: yes
-        become_method: enable
         path: "{{ item }}"
-        state: directory
-        recurse: yes  
+        state: file
         owner: prometheus
         group: prometheus  
       loop:
