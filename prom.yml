@@ -4,7 +4,7 @@
    hosts: all
    vars:
     -  Prom_url: "https://github.com/prometheus/prometheus/releases/download/v2.39.1/prometheus-2.39.1.linux-amd64.tar.gz"
-
+   
    tasks:
     -  name: updating packages
        apt:
@@ -14,7 +14,13 @@
        get_url:
          url: "{{ Prom_url }}"
          dest: /home/ansible
-      
+    -  name: unarchieve the prometheus url
+       unarchive:
+         src: "/home/ansible/prometheus-2.39.1.linux-amd64.tar.gz"
+         dest: "/home/ansible/prometheus-files"
+         remote_src: yes
+         
+         
          
 
   
