@@ -63,6 +63,27 @@
       loop:
        -  /usr/local/bin/prometheus
        -  /usr/local/bin/promtool   
+    - name: copying console and console libraries
+      copy: 
+        src: "{{ item }}" 
+        dest: /etc/prometheus
+        remote_src: yes 
+      loop:
+       - /home/ansible/prometheus-files/prometheus-2.39.1.linux-amd64/consoles
+       - /home/ansible/prometheus-files/prometheus-2.39.1.linux-amd64/console_libraries    
+       
+    - name: changin ownership of console and console libraries
+      file:
+        path: "{{ item }}"
+        state: directory
+        remote_src: yes 
+        owner: prometheus
+        group: prometheus  
+      loop:
+       - /etc/prometheus/consoles 
+       - /etc/prometheus/console_libraries     
+
+
 
 
 
