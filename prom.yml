@@ -76,7 +76,6 @@
       file:
         path: "{{ item }}"
         state: directory
-        remote_src: yes 
         owner: prometheus
         group: prometheus  
       loop:
