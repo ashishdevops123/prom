@@ -60,7 +60,7 @@
         state: file
         owner: prometheus
         group: prometheus 
-        mode: '0644'  
+        mode: '0744'  
       loop:
        -  /usr/local/bin/prometheus
        -  /usr/local/bin/promtool   
@@ -88,14 +88,14 @@
         dest: /etc/prometheus/prometheus.yml
         owner: prometheus
         group: prometheus
-        mode: '0644' 
+        mode: '0744' 
     - name: copying service file
       template:
         src: prometheus.service.j2
         dest: /etc/systemd/system/prometheus.service
         owner: prometheus
         group: prometheus
-        mode: '0644'
+        mode: '0744'
     - name: starting prometheus service
       systemd:
         name: prometheus.service
