@@ -30,9 +30,23 @@
          name: prometheus
          create_home: no
          shell: /bin/false
-         
+    - name: create a group prometheus
+      group:
+        name: prometheus
+        state: present     
+    - name: creating directory a
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        recurse: yes
+        owner: prometheus
+        group: prometheus
+      loop:
+       -  /etc/prometheus
+       -  /var/lib/prometheus           
 
-              
+
+                
          
          
          
