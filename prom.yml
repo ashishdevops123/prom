@@ -34,8 +34,8 @@
       group:
         name: prometheus
         state: present     
-    - name: creating directory a
-      ansible.builtin.file:
+    - name: creating directories
+      file:
         path: "{{ item }}"
         state: directory
         recurse: yes
@@ -43,7 +43,28 @@
         group: prometheus
       loop:
        -  /etc/prometheus
-       -  /var/lib/prometheus           
+       -  /var/lib/prometheus
+    - name: copying prometheus
+      copy: 
+        src: /home/ansible//prometheus-files/prometheus-2.39.1.linux-amd64/prometheus
+        dest: /usr/local/bin/
+        remote_src: yes    
+    - name: copying promtool
+      copy: 
+        src: /home/ansible//prometheus-files/prometheus-2.39.1.linux-amd64/promtool
+        dest: /usr/local/bin/
+        remote_src: yes   
+    - name: changing ownership of prometheus and promtool
+      file:
+        path: "{{ item }}"
+        state: directory
+        recurse: yes
+        owner: prometheus
+        group: prometheus  
+      loop:
+       -  /usr/local/bin/prometheus
+       -  /usr/local/bin/promtool   
+                 
 
 
                 
