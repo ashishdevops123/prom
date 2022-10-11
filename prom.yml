@@ -72,7 +72,7 @@
        - /home/ansible/prometheus-files/prometheus-2.39.1.linux-amd64/consoles
        - /home/ansible/prometheus-files/prometheus-2.39.1.linux-amd64/console_libraries    
        
-    - name: changin ownership of console and console libraries
+    - name: changing ownership of console and console libraries
       file:
         path: "{{ item }}"
         state: directory
@@ -80,8 +80,8 @@
         owner: prometheus
         group: prometheus  
       loop:
-       - /etc/prometheus/consoles 
-       - /etc/prometheus/console_libraries     
+       - /etc/prometheus/consoles
+       - /etc/prometheus/console_libraries    
 
 
 
