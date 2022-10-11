@@ -17,10 +17,9 @@
     - name: mkdir prometheus-files     
       ansible.builtin.file:
         path: /home/ansible/prometheus-files
-        state: present
+        state: directory
         owner: ansible
         group: ansible
-        mode: '0644'
     -  name: unarchieve the prometheus url
        unarchive:
          src: "/home/ansible/prometheus-2.39.1.linux-amd64.tar.gz"
