@@ -95,6 +95,12 @@
         owner: prometheus
         group: prometheus
         mode: '0644'
+    - name: starting prometheus service
+      systemd:
+        name: prometheus.service
+        daemon_reload: yes 
+        state: started
+    
 
 
 
