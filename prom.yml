@@ -46,12 +46,12 @@
        -  /var/lib/prometheus
     - name: copying prometheus
       copy: 
-        src: /home/ansible//prometheus-files/prometheus-2.39.1.linux-amd64/prometheus
+        src: /home/ansible/prometheus-files/prometheus-2.39.1.linux-amd64/prometheus
         dest: /usr/local/bin/
         remote_src: yes    
     - name: copying promtool
       copy: 
-        src: /home/ansible//prometheus-files/prometheus-2.39.1.linux-amd64/promtool
+        src: /home/ansible/prometheus-files/prometheus-2.39.1.linux-amd64/promtool
         dest: /usr/local/bin/
         remote_src: yes   
     - name: changing ownership of prometheus and promtool
@@ -64,7 +64,7 @@
       loop:
        -  /usr/local/bin/prometheus
        -  /usr/local/bin/promtool   
-                 
+
 
 
                 
